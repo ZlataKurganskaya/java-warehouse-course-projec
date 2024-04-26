@@ -8,5 +8,6 @@ import java.util.Collection;
 
 public interface ProductDAO <A extends Product> {
     Collection<A> find(SearchCriteria<A> criteria);
+    Collection<A> findAll();
 }
 

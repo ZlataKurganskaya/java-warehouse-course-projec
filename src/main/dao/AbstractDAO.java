@@ -19,7 +19,12 @@ public abstract class AbstractDAO<A extends Product> implements ProductDAO<A> {
     }
 
     @Override
+    public Collection<A> findAll() {
+        return parser.readData(csvPath);
+    }
+
+    @Override
     public Collection<A> find(SearchCriteria<A> criteria) {
-        return null;
+        return parser.readData(csvPath).stream().filter(criteria::test).toList();
     }
 }
