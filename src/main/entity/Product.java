@@ -2,7 +2,7 @@ package src.main.entity;
 
 import java.util.Objects;
 
-public abstract class Product <Self extends Product<Self>> {
+public class Product <Self extends Product<Self>> {
     private int id;
     private double price;
     private String name;
