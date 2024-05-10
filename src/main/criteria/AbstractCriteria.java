@@ -6,8 +6,7 @@ import src.main.parameter.Parameter;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class AbstractCriteria<A extends Product>
-        implements SearchCriteria<A> {
+public abstract class AbstractCriteria<A extends Product> implements SearchCriteria<A> {
 
     protected final Map<Class<?>, Parameter<A>> parameters = new HashMap<>();
 
@@ -18,7 +17,13 @@ public abstract class AbstractCriteria<A extends Product>
     }
 
     @Override
-    public boolean test(A appliance) {
-        return parameters.values().stream().allMatch(item -> item.test(appliance)) ;
+    public boolean test(A product) {
+        for (Parameter<A> parameter : parameters.values()) {
+            if (!parameter.test(product)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

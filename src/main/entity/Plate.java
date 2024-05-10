@@ -8,12 +8,19 @@ public class Plate extends Product<Plate> {
         this.size = size;
     }
 
+    public Plate() { }
+
     public String getSize() {
         return size;
     }
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Size: " +size;
     }
 }
 

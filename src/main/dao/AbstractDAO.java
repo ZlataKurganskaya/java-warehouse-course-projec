@@ -8,23 +8,23 @@ import java.nio.file.Path;
 import java.util.Collection;
 
 public abstract class AbstractDAO<A extends Product> implements ProductDAO<A> {
-    private final Path csvPath;
+    private final String csvPath;
     private final CsvLineParser<A> parser;
 
 
 
     protected AbstractDAO(String path, CsvLineParser<A> parser) {
-        this.csvPath = Path.of(path);
+        this.csvPath = path;
         this.parser = parser;
     }
 
     @Override
     public Collection<A> findAll() {
-        return parser.readData(csvPath);
+        return parser.parse(csvPath);
     }
 
     @Override
     public Collection<A> find(SearchCriteria<A> criteria) {
-        return parser.readData(csvPath).stream().filter(criteria::test).toList();
+        return parser.parse(csvPath).stream().filter(criteria::test).toList();
     }
 }

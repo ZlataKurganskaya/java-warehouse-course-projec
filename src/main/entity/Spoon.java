@@ -15,4 +15,9 @@ public class Spoon extends Product<Spoon> {
     public void setMaterial(String material) {
         this.material = material;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Material: " +material;
+    }
 }

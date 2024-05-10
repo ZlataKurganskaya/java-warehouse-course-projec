@@ -2,7 +2,7 @@ package src.main.entity;
 
 import java.util.Objects;
 
-public class Product <Self extends Product<Self>> {
+public abstract class Product <Self extends Product<Self>> {
     private int id;
     private double price;
     private String name;
@@ -14,6 +14,9 @@ public class Product <Self extends Product<Self>> {
         this.name = name;
         this.color = color;
     }
+
+    public Product() { }
+
 
     public int getId() {
         return id;
@@ -65,7 +68,7 @@ public class Product <Self extends Product<Self>> {
 
     @Override
     public String toString() {
-        return "This is" +name + "of color" +color + "at the price of" +price +". Id of this product is" +id ;
+        return "Product: " +name + ". Color: " +color + ". Price: " +price +" Id: " +id ;
     }
 }
 

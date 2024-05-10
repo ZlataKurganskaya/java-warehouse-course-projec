@@ -8,10 +8,10 @@ import src.main.entity.Spoon;
 public enum DaoFactory {
     INSTANCE;
 @SuppressWarnings("uncheked")
-    public <A extends Product> ProductDAO<A> getApplianceDAO(Class<A> applianceType) {
-        if(Cup.class.equals(applianceType)) { return (ProductDAO<A>) new CupDAO(); }
-        if(Plate.class.equals(applianceType)) { return (ProductDAO<A>) new PlateDAO(); }
-        if(Spoon.class.equals(applianceType)) { return (ProductDAO<A>) new SpoonDAO(); }
+    public <A extends Product> ProductDAO<A> getApplianceDAO(Class<A> Products) {
+        if(Cup.class.equals(Products)) { return (ProductDAO<A>) new CupDAO(); }
+        if(Plate.class.equals(Products)) { return (ProductDAO<A>) new PlateDAO(); }
+        if(Spoon.class.equals(Products)) { return (ProductDAO<A>) new SpoonDAO(); }
         return null;
     }
 }

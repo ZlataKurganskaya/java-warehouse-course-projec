@@ -14,6 +14,11 @@ public class Cup extends Product<Cup>{
     public void setVolume(int volume) {
         this.volume = volume;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Volume: " +volume;
+    }
 }
 
 
